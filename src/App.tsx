@@ -1,9 +1,14 @@
-
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import './App.css'
+import { RenderCounties } from './RenderCounties'
+
 
 function App() {
+
+  const runConsole = (countyName: string) => {
+    console.log(countyName)
+  }
 
   return (
     <>
@@ -18,6 +23,7 @@ function App() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+          <RenderCounties runConsole={runConsole} />
         </MapContainer>
       </div>
     </>
