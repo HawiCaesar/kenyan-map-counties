@@ -11,34 +11,39 @@ export const RenderCounties = ({ runConsole }: RenderCountiesProps) => {
       key={index}
      data={county}
       style={{
-        fillColor: 'red',
-        weight: 2,
-        opacity: 1,
-        color: 'white',
+        //fillColor: 'red',
+        weight: 1,
+        opacity: 0.5,
+        color: 'blue',
         dashArray: '3',
-        fillOpacity: 0.7
+        //fillOpacity: 0.7
       }}
       eventHandlers={{
         mouseover: (e) => {
           const layer = e.target;
           layer.setStyle({
             weight: 5,
-            color: '#666',
+            color: 'red',
             dashArray: '',
-            fillOpacity: 0.9
+            //fillOpacity: 0.9
           });
           layer.bringToFront();
-          runConsole(county);
+          
         },
         mouseout: (e) => {
           const layer = e.target;
           layer.setStyle({
             weight: 2,
-            color: 'white',
+           color: 'blue',
             dashArray: '3',
-            fillOpacity: 0.7
+            //fillOpacity: 0.7
           });
-        }
+        },
+        click: (e) => {
+            const map = e.target._map;
+            map.fitBounds(e.target.getBounds());
+            runConsole(county.properties?.name)
+          }
       }}
     />
   ));
