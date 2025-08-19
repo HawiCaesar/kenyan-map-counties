@@ -23,7 +23,7 @@ export const RenderCounties = ({ runConsole }: RenderCountiesProps) => {
           const layer = e.target;
           layer.setStyle({
             weight: 5,
-            color: 'red',
+            color: 'transparent',
             dashArray: '',
             //fillOpacity: 0.9
           });
