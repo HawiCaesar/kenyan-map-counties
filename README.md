@@ -2,6 +2,8 @@
 
 A clean, reusable React component for rendering an interactive map of all 47 Kenyan counties with GeoJSON boundary data. Built with React, TypeScript, Leaflet, and Vite.
 
+<img src="./Kenyan-County-Map.png" alt="an image of the Kenyan Map using React and Leaflet" />
+
 ## Features
 
 - **Interactive County Boundaries** - All 47 Kenyan counties rendered with accurate GeoJSON boundary data
