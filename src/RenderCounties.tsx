@@ -1,16 +1,13 @@
 import { GeoJSON } from 'react-leaflet';
 import { counties } from './counties';
-import type { Experience } from './data/types';
 
 type RenderCountiesProps = {
   runConsole: (countyName: string) => void;
-  selectedExperience: Experience | null;
 }
 
-export const RenderCounties = ({ runConsole, selectedExperience }: RenderCountiesProps) => {
+export const RenderCounties = ({ runConsole }: RenderCountiesProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return counties.map((county: any, index: number) => {
-    const isSelected = selectedExperience?.countyName === county.properties?.name;
     
     return (
       <GeoJSON
@@ -18,10 +15,10 @@ export const RenderCounties = ({ runConsole, selectedExperience }: RenderCountie
         data={county}
         style={{
           //fillColor: 'red',
-          weight: isSelected ? 5 : 1,
+          weight: 1,
           opacity: 0.5,
-          color: isSelected ? 'transparent' : 'blue',
-          dashArray: isSelected ? '' : '3',
+          color: 'blue',
+          dashArray: '3',
           //fillOpacity: 0.7
         }}
         eventHandlers={{
@@ -40,9 +37,9 @@ export const RenderCounties = ({ runConsole, selectedExperience }: RenderCountie
             const layer = e.target;
             // Restore to selected or default style
             layer.setStyle({
-              weight: isSelected ? 5 : 2,
-              color: isSelected ? 'transparent' : 'blue',
-              dashArray: isSelected ? '' : '3',
+              weight: 1,
+              color: 'blue',
+              dashArray: '3',
               //fillOpacity: 0.7
             });
           },
